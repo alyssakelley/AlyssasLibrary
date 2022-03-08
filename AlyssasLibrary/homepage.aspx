@@ -24,14 +24,14 @@
                             <img width="150" src="images/BookSearchIcon.PNG" />
                         </a>
                         <h4> Sign Up </h4>
-                        <p class="text-justify"> Please click here to create an account at Alyssa's Library. </p>                      
+                        <p style="font-family:'Courier'" class="text-justify"> Please click here to create an account at Alyssa's Library. </p>                      
                     </center>
                 </div>
                 <div class="col-md-3"> <!-- column can be divided into 12 parts, we have three options: 12/3 = 4, md = this dev takes 4 parts of the entire row when device is above medium size, it is is below, it'll take the entire row (aka mobile view) -->
                     <center>
                         <img width="150" src="images/CloudDownloadIcon.PNG" />
                         <h4> Book Inventory </h4>
-                        <p class="text-justify"> Please click here to view the books available at Alyssa's Library. </p>
+                        <p style="font-family:'Courier'" class="text-justify"> Please click here to view the books available at Alyssa's Library. </p>
                     </center>
                 </div>
 
@@ -39,7 +39,7 @@
                     <center>
                         <img width="150" src="images/BookEarthSearchIcon.PNG"/>
                         <h4> Search Books</h4>
-                        <p> You can use this feature to search for specific books at Alyssa's Library. </p>
+                        <p style="font-family:'Courier'"> You can use this feature to search for specific books at Alyssa's Library. </p>
                     </center>
                 </div>
 

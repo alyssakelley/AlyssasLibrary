@@ -115,7 +115,7 @@
             <div id="footer2" class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                        <p style="color:whitesmoke">&copy Created by Alyssa Kelley in March 2022 using .NET and following tutorials provided by Simple Snippets. You can view the code on my <a class="footerlinks" href="https://github.com/alyssakelley" target="_blank">GitHub</a></p>
+                        <p style="color:whitesmoke">&copy Created by Alyssa Kelley in March 2022 using .NET and following tutorials provided by Simple Snippets. You can view the code on my <a class="footerlinks" href="https://github.com/alyssakelley/AlyssasLibrary" target="_blank">GitHub</a></p>
                     </div>
                 </div>
             </div>
