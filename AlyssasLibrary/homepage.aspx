@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-md-3"> <!-- column can be divided into 12 parts, we have three options: 12/3 = 4, md = this dev takes 4 parts of the entire row when device is above medium size, it is is below, it'll take the entire row (aka mobile view) -->
                     <center>
-                        <a href="https://github.com/alyssakelley">
+                        <a href="usersignup.aspx">
                             <img width="150" src="images/BookSearchIcon.PNG" />
                         </a>
                         <h4> Sign Up </h4>

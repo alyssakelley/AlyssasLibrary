@@ -33,6 +33,24 @@ namespace AlyssasLibrary
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// GitHubButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton GitHubButton;
+
+        /// <summary>
+        /// IndeedButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton IndeedButton;
+
+        /// <summary>
         /// LinkButton1 control.
         /// </summary>
         /// <remarks>
