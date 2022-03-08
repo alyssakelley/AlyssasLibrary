@@ -1,0 +1,127 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="AlyssasLibrary.Site1" %>
+<!-- Most of this code is copied from getbootstrap.com navbar and footer-->
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <!-- Adding the bootstrap css-->
+    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+     <!-- Adding the custom style sheet css (used in footer1 and footer2)-->
+    <link href="Bootstrap/css/customStyleSheet.css" rel="stylesheet" />
+
+    <!-- Adding the datatables css-->
+    <link href="Datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <!-- Adding frontawesome css-->
+    <link href="fontawesome/css/all.css" rel="stylesheet" />
+
+    <!-- bootstrap and datatables jquery, popper, then bootstrap js (order matters!)-->
+    <script src="Bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="Bootstrap/js/popper.min.js"></script>
+    <script src="Bootstrap/js/bootstrap.min.js"></script>
+    <script src="Datatables/js/jquery.dataTables.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- using bootstap navigation -->
+
+        <!-- header-->
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="#"> <!-- anchor tag-->
+                    <img src="images/AKIcon.PNG" width="100" height="100"/>
+                    <!--style="font-family:Monospace"-->
+                        Alyssa's Library
+                    <!--style-->
+                </a>
+                <!-- adding toggle feature so when resizing browser, still looks good and looks good on mobile browser, I just pasted this from bootstrap lib page-->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span> 
+                </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- First unordered list = Two static pages (Home, About Me), on the right by the icon -->
+                        <ul class="navbar-nav me-auto"> <!-- me-auto should fill in the right space, if I want all the header links together, take out mr-auto-->
+                            <li class="nav-item">
+                                <a class="nav-link active" href="homepage.aspx">Home</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">About Me</a>
+                            </li>
+                        </ul>
+
+                        <!-- Second unordered list = three dynamic pages (Home, About Me), on the left -->
+                        <ul class="navbar-nav"> <!-- This will fill out the rest of the navbar on the left side-->
+                            <li class="nav-item active">
+                                <!-- the asp tag component means it will do something when clicked-->
+                                <asp:LinkButton class="nav-link" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">View Books</asp:LinkButton>
+                            </li>
+                            <li class="nav-item active">
+                                <asp:LinkButton class="nav-link" ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">User Login</asp:LinkButton>
+                            </li>
+                            <li class="nav-item active">
+                                <asp:LinkButton class="nav-link" ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">Sign Up</asp:LinkButton>
+                            </li>
+                            <li class="nav-item active">
+                                <asp:LinkButton class="nav-link" ID="LinkButton4" runat="server" Visible="False" OnClick="LinkButton4_Click">Logout</asp:LinkButton> 
+                            </li>
+                            <li class="nav-item active">
+                                <asp:LinkButton class="nav-link" ID="LinkButton5" runat="server" Visible="False">Hello user</asp:LinkButton> 
+                            </li>
+                        </ul>
+                </div>                  
+            </nav>
+        </div>
+        <!-- Master Content Placeholder -->
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <!-- Footer -->
+        <!-- This is just my previous basic footer that doesn't have any links or anything going on.
+        <div>
+            <p >&copy Created by Alyssa Kelley in March 2022 using .NET and following tutorials provided by Simple Snippets. You can view the code on my <a class="footerlinks" href = "https://github.com/alyssakelley" target="_blank">GitHub</a></p>
+        </div>
+        -->
+        <!-- footer is using customStyleSheet.css --> 
+        <footer>
+            <div id="footer1" class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                        <p>
+                            <asp:LinkButton class="footerlinks" ID="LinkButton6" runat="server" OnClick="LinkButton6_Click">Admin Login</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton7" runat="server" OnClick="LinkButton7_Click" Visible="False">Author Management</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton8" runat="server" OnClick="LinkButton8_Click" Visible="False">Publisher Management</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton9" runat="server" OnClick="LinkButton9_Click" Visible="False">Book Inventory</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton10" runat="server" OnClick="LinkButton10_Click" Visible="False">Book Issuing</asp:LinkButton>
+                            &nbsp;
+                             <asp:LinkButton class="footerlinks" ID="LinkButton11" runat="server" OnClick="LinkButton11_Click" Visible="False">Member Management</asp:LinkButton>
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+            <div id="footer2" class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                        <p style="color:whitesmoke">&copy Created by Alyssa Kelley in March 2022 using .NET and following tutorials provided by Simple Snippets. You can view the code on my <a class="footerlinks" href="https://github.com/alyssakelley" target="_blank">GitHub</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+
+    </form>
+</body>
+</html>

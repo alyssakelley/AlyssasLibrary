@@ -1,0 +1,37 @@
+﻿/*I like using https://imagecolorpicker.com/en form HEX color-profile matching*/
+.footerlinks {
+    color: #3762cc;
+    text-decoration: none !important;
+}
+
+    .footerlinks:hover {
+        color: #a4c9ff;
+    }
+
+#footer1 {
+    background: #f9cfcf;
+}
+
+#footer2 {
+    background: #f9a7a7;
+}
+
+@font-face {
+    font-family: 'Allura-Regular';
+    src: url('../../fonts/Allura-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'DancingScript-VariableFont_wght';
+    src: url('../../fonts/DancingScript-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'PoiretOne-Regular';
+    src: url('../../fonts/PoiretOne-Regular.ttf') format('truetype');
+}
+
+.himg {
+    width: 100%;
+    z-index: 0;
+}
