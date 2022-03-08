@@ -1,0 +1,2 @@
+# AlyssasLibrary
+An E-Library created using ASP.NET, Bootstrap, Datatables, and Fontawesome using SQL Database. The user functionalities include user sign up, login, view books, and view/edit profile. The admin functionalities include admin login, author management, publisher management, book inventory, book issuing, and member management. You can also view the static pages to show my resume and my favorite books.
