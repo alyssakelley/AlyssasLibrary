@@ -163,14 +163,14 @@
                             <div class="col-md-4">
                                 <label> Book Cost </label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="cost" runat="server" placeholder="Cost" TextMode="Number"></asp:TextBox> 
+                                    <asp:TextBox CssClass="form-control" ID="cost" runat="server" placeholder="Cost"></asp:TextBox> 
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <label> Pages </label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="pageCount" runat="server" placeholder="Pages" TextMode="Number"></asp:TextBox> 
+                                    <asp:TextBox CssClass="form-control" ID="pageCount" runat="server" placeholder="Pages"></asp:TextBox> 
                                 </div>
                             </div>
                         </div>

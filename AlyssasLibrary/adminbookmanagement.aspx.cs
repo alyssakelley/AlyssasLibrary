@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 using System.IO;
+using Microsoft.VisualBasic;
 
 namespace AlyssasLibrary
 {
@@ -26,6 +27,10 @@ namespace AlyssasLibrary
             {
                 //Response.Write("<script>alert('Searching...');</script>");
                 PopulateBookDetails();
+            }
+            else if (IsBookIDBlank())
+            {
+                Response.Write("<script>alert('Please enter a valid bookID.');</script>");
             }
             else
             {
@@ -168,9 +173,9 @@ namespace AlyssasLibrary
                 string allGenres = "";
                 foreach(int i in GenreListBox.GetSelectedIndices())
                 {
-                    allGenres = allGenres + GenreListBox.Items[i] + ", ";
+                    allGenres = allGenres + GenreListBox.Items[i] + ",";
                 }
-                allGenres = allGenres.Remove(allGenres.Length - 2); // removing the last two values which will be ", "
+                allGenres = allGenres.Remove(allGenres.Length - 1); // removing the last value which will be ","
 
                 //save the filename, save the file to bookInventory, save full file path for saving into DB as a string
                 //hardcoded example: string filepath = "~/booKInventory/bookimg.png";
@@ -259,6 +264,7 @@ namespace AlyssasLibrary
 
         void PopulateBookDetails()
         {
+            //Response.Write("<script>alert('Trying to populate.');</script>");
             try
             {
                 SqlConnection con = new SqlConnection(strcon);
@@ -268,34 +274,57 @@ namespace AlyssasLibrary
                     con.Open(); //if the connection is closed, then we need to open it first
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM BookDim WHERE bookID = '" +ID.Text.Trim() + "';", con); //+ //Session["bookID"] + "';", con);
+                //Response.Write("<script>alert('selecting...');</script>");
+                SqlCommand cmd = new SqlCommand("SELECT * FROM BookDim WHERE bookID = '" + ID.Text.Trim() + "';", con); //+ //Session["bookID"] + "';", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
                 if(dt.Rows.Count > 0 )
                 {
-                    bookName.Text = "testing"; // dt.Rows[0]["bookName"].ToString();
-                    //publishedDate.Text = dt.Rows[0]["publishDate"].ToString();
-                    //edition.Text = dt.Rows[0]["edition"].ToString();
-                    //currentStock.Text = dt.Rows[0]["currentStock"].ToString();
-                    //actualStock.Text = dt.Rows[0]["actualStock"].ToString();
-                    //checkedOut.Text = dt.Rows[0]["checkedOut"].ToString();
-                    //pageCount.Text= dt.Rows[0]["pageCount"].ToString();
-                    //bookDesc.Text = dt.Rows[0]["bookDesc"].ToString();
-                    //GenreListBox.SelectedItem.Value = dt.Rows[0]["genre"].ToString().Trim();
-                    //LangDropDownList.SelectedValue = dt.Rows[0]["language"].ToString().Trim();
-                    //PublisherDropDown.SelectedItem.Value = dt.Rows[0]["publisherName"].ToString().Trim();
-                    //AuthorDropDown.SelectedItem.Value = dt.Rows[0]["authorName"].ToString().Trim();
-                    BookGridView.DataBind();
+                    /*
+                    string dateStr = dt.Rows[0]["publishDate"].ToString();
+                    //dt will be DateTime type
+                    DateTime dateT = Convert.ToDateTime(dateStr);
+                    //s will be MM/dd/yyyy format string
+                    string finalDateStr = dateT.ToString("MM/dd/yyyy");
+                    var date = DateTime.Now.ToString("MM/dd/yyyy");
+                    */
+                    
+                    bookName.Text = dt.Rows[0]["bookName"].ToString();
+                    pageCount.Text = dt.Rows[0]["pageCount"].ToString().Trim();//
+                    bookDesc.Text = dt.Rows[0]["bookDesc"].ToString().Trim();//
+                    cost.Text = dt.Rows[0]["bookPrice"].ToString().Trim();//
+                    edition.Text = dt.Rows[0]["edition"].ToString();
+                    currentStock.Text = dt.Rows[0]["currentStock"].ToString();
+                    actualStock.Text = dt.Rows[0]["actualStock"].ToString();
+                    checkedOut.Text = "" + (Convert.ToInt32(dt.Rows[0]["actualStock"].ToString()) - Convert.ToInt32(dt.Rows[0]["currentStock"].ToString()));
+                    publishedDate.Text = dt.Rows[0]["publishDate"].ToString();
+                    LangDropDownList.SelectedValue = dt.Rows[0]["language"].ToString().Trim().Trim();
+                    PublisherDropDown.SelectedValue = dt.Rows[0]["publisherName"].ToString().Trim();
+                    AuthorDropDown.SelectedValue = dt.Rows[0]["authorName"].ToString().Trim();
+
+                    //selecting genres in the drop down box
+                    string[] currGenres = dt.Rows[0]["genre"].ToString().Trim().Split(',');
+                    GenreListBox.ClearSelection(); // clear out so any existing selections are blank
+                    for(int i = 0; i < currGenres.Length; i++) // looking at each genre we have in the database 
+                    {
+                        for (int j = 0; j < GenreListBox.Items.Count; j++) // trying to find a match to each available genre option we list
+                        {
+                            if (currGenres[i] == GenreListBox.Items[j].ToString())
+                            {
+                                GenreListBox.Items[j].Selected = true; // select the same genre in the drop down and show it as selected
+                            }
+                        }
+                    }
                 }
                 else
                 {
                     Response.Write("<script>alert('" + Session["bookID"] + " has been updated.');</script>");
                 }
                 con.Close();
-                clearForm();
-                BookGridView.DataBind();
+                //BookGridView.DataBind();
+
             }
             catch (Exception ex)
             {
@@ -326,8 +355,11 @@ namespace AlyssasLibrary
             checkedOut.Text = "";
             pageCount.Text = "";
             bookDesc.Text = "";
-            //AuthorDropDown.SelectedValue = "";
+            GenreListBox.ClearSelection();
+            cost.Text = "";
+            LangDropDownList.ClearSelection();
+            PublisherDropDown.ClearSelection();
+            AuthorDropDown.ClearSelection();
         }
-
     }
 }
