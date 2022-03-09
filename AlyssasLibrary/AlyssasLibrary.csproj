@@ -1877,6 +1877,7 @@
     <Content Include="images\Background3.PNG" />
     <Content Include="images\BookEarthSearchIcon.PNG" />
     <Content Include="images\BookFavoriteIcon.PNG" />
+    <Content Include="images\bookInventory\BookFavoriteIcon.PNG" />
     <Content Include="images\BookmarkFavoriteIcon.PNG" />
     <Content Include="images\BooksCircleIcon.PNG" />
     <Content Include="images\BookSearchIcon.PNG" />
@@ -2036,6 +2037,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

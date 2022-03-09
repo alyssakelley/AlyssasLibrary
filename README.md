@@ -10,14 +10,7 @@ The header will allow the user to see a static “About Me” and “Founder’s Favorit
 	This showcases some information about myself, both personal and profession. 
 ###### Founder’s Favorites 
 	This shows my top 5 favorite books at the moment, with a link to my good reads account. 
-Towards the left of the header, you will see the following dynamic pages:
-###### View Books 
-	View the available books we have for potential checkout.
-###### User Login 
-	The member login page, if the member already has an account, they can login with their memberID and password. If not, they can click the Sign Up button. Once the user logs in, they will be navigates to the homepage. 
-###### Sign Up 
-	Navigates to the member sign up page. The only fields that are mandatory is the member ID (primary key in the DB). Once the user signs up, they will be navigates to the user login page.
-Note: These dynamic header options will change if the member is logged in. When the member is logged in, you will see:
+Towards the left of the header, you will see the following dynamic pages.
 ###### View Books 
 	View the available books we have for potential checkout.
 ###### Logout 
@@ -48,3 +41,11 @@ When you are logged in as admin, the header changes to mimic user login, and the
 	The admin will be able to see the member’s profile details, and be able to update the account status (the account status is pending until the admin changes it to active), or permanently delete the membership. You will also see all of the member’s checkout books in the right table.
 You will also be able to navigate to these pages by clicking the 4 icons in the center of the homepage: Sign Up, Book Inventory, Search Books, and Founder’s Favorites.
 
+### Homepage/Center
+###### View Books 
+	View the available books we have for potential checkout.
+###### User Login 
+	The member login page, if the member already has an account, they can login with their memberID and password. If not, they can click the Sign Up button. Once the user logs in, they will be navigates to the homepage. 
+###### Sign Up 
+	Navigates to the member sign up page. The only fields that are mandatory is the member ID (primary key in the DB). Once the user signs up, they will be navigates to the user login page.
+Note: These dynamic header options will change if the member is logged in. When the member is logged in, you will see:
